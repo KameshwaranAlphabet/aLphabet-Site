@@ -13,8 +13,6 @@ import socialmedia4 from './utils/images/4.png';
 import socialmedia5 from './utils/images/5 (1).png';
 import MainNavbar from './Header/MainNavbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import EventCard from '../src/pages/EventCard/EventCard';
-import ProgramSection from './components/ProgramSection';
 
 function App() {
   return (
@@ -29,9 +27,6 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-
-
-         <ProgramSection/>
 
   <footer className="bg-light stripes border-top d-flex justify-content-center align-items-start"
         style={{

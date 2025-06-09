@@ -37,7 +37,6 @@ function Blog() {
           <h2 className="text-center mb-5 fw-bold" style={{ fontSize: '2rem', color: '#3A3A3A' }}>
             Our Programs
           </h2>
-
           <div className="row g-4">
             {staticBlogs.map((blog) => (
               <div key={blog.id} className="col-md-6 col-lg-4 d-flex">

@@ -11,7 +11,7 @@ import LogoCarousel from '../LogoCarousel/LogoCarousel';
 import Programs from '../Programs/Programs';
 import EventCard from '../EventCard/EventCard';
 import { motion } from 'framer-motion';
-
+import SocialConnectSection from '../../components/SocialConnectSection/SocialConnectSection';
 
 // Helper to extract first image URL from post content
 const extractImageUrl = (htmlContent) => {
@@ -83,6 +83,9 @@ function Home() {
        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <EventCard />
     </div> 
+     <div className="">
+      <SocialConnectSection />
+    </div> 
       {/* Courses Highlight Section */}
       <div className='py-5 bg-light courses'>
         <div className="container">
@@ -107,7 +110,7 @@ function Home() {
       </div>
 
       {/* Blog Section */}
-      <div className='blog-section text-light py-5'>
+      {/* <div className='blog-section text-light py-5'>
         <div className='container d-flex flex-column align-items-center'>
           <h2 className='text-center text-capitalize mb-5'>Latest on the blog</h2>
           <div className='row g-4'>
@@ -138,7 +141,7 @@ function Home() {
             <button type='button' className='btn btn-danger btn-lg mt-5'>Read More Blogs</button>
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
