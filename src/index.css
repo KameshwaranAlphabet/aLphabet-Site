@@ -10,3 +10,84 @@ body {
 code {
   font-family: 'Montserrat', sans-serif;
 }
+.custom-apply-btn {
+  display: grid;
+
+  padding: 7px 6.465px;
+  row-gap: 5.75px;
+  column-gap: 5.75px;
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  border-radius: 12px; /* equivalent to rounded-3 */
+  background-color: #5D88E5; /* Default blue */
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+/* Hover state */
+.custom-apply-btn:hover {
+  background-color: #0056b3; /* Darker blue */
+  color: #fff;
+ 
+}
+
+/* Active (on click) */
+.custom-apply-btn:active {
+  background-color: #003974; /* Even darker blue */
+  color: #fff;
+}
+
+/* Outlined version (optional class) */
+.custom-apply-btn.outlined {
+  background-color: transparent;
+  border: 2px solid #007bff;
+  color: #007bff;
+}
+
+.custom-apply-btn.outlined:hover {
+  background-color: #007bff;
+  color: white;
+}
+.custom-hover-link {
+  text-decoration: none;
+}
+
+.custom-hover-link:hover {
+  text-decoration: underline;
+}
+.custom-dark-group {
+  color: #212529; /* Dark text color for the whole group */
+}
+
+.custom-icon {
+  font-size: 24px;         /* Adjust as needed */
+  cursor: pointer;
+  color: #212529;
+}
+
+.custom-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: #212529;
+}
+
+.custom-hover-link {
+  text-decoration: none;
+}
+
+.custom-hover-link:hover {
+  text-decoration: underline;
+}
+@media (max-width: 576px) {
+  .custom-apply-btn {
+    font-size: 14px !important;
+    padding: 10px 16px !important;
+   
+  }
+}

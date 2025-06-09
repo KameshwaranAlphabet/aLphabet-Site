@@ -1,104 +1,146 @@
-import React from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import ChooseSection from '../../components/ChooseSection/ChooseSection';
 import StartCoursesImg from '../../utils/images/start-courses-img.jpg';
 import FaqAccordion from '../../components/FaqAccordion/FaqAccordion';
 import { Card } from 'react-bootstrap';
-import Blog1Img from '../../utils/images/blog1-img.jpg';
-import Blog2Img from '../../utils/images/blog2-img.jpg';
-import Blog3Img from '../../utils/images/blog3-img.jpg';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import ApplyNowButton from '../../components/ApplyNowButton';
+import LogoCarousel from '../LogoCarousel/LogoCarousel';
+import Programs from '../Programs/Programs';
+import EventCard from '../EventCard/EventCard';
+import { motion } from 'framer-motion';
 
-const blogs = [
-    {
-        id: 1,
-        img: [Blog1Img],
-        title: 'Blog 1',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, fugit? Doloremque deserunt ipsum eaque, dolor tempore, minima nisi debitis, et quas voluptatibus nam ex. Necessitatibus eligendi ratione expedita! Porro, ut.'
-    },
-    {
-        id: 2,
-        img: [Blog2Img],
-        title: 'Blog 2',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, fugit? Doloremque deserunt ipsum eaque, dolor tempore, minima nisi debitis, et quas voluptatibus nam ex. Necessitatibus eligendi ratione expedita! Porro, ut.'
-    },
-    {
-        id: 3,
-        img: [Blog3Img],
-        title: 'Blog 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, fugit? Doloremque deserunt ipsum eaque, dolor tempore, minima nisi debitis, et quas voluptatibus nam ex. Necessitatibus eligendi ratione expedita! Porro, ut.'
-    }
-];
+
+// Helper to extract first image URL from post content
+const extractImageUrl = (htmlContent) => {
+  const doc = new DOMParser().parseFromString(htmlContent, 'text/html');
+  const img = doc.querySelector('img');
+  return img ? img.src : null;
+};
 
 function Home() {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost/wordpress/wordpress/wp-json/wp/v2/posts?_embed')
+      .then((response) => {
+        setBlogs(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching blog posts:', error);
+      });
+  }, []);
+
   return (
     <div className='home-page'>
-        <header className='h-100 min-vh-100 d-flex align-items-center text-light'>
-            <div className='container d-flex flex-column align-items-center'>
-                <h2>Welcome To</h2>
-                <h1 className='text-center fw-semibold'>React University London</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, fugit? Doloremque deserunt ipsum eaque, dolor tempore, minima nisi debitis, et quas voluptatibus nam ex. Necessitatibus eligendi ratione expedita! Porro, ut.</p>
-                <div className='d-flex flex-column flex-sm-row align-items-center'>
-                    <Link to="/courses">
-                        <button type='button' className='btn btn-danger btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Our Courses</button>
-                    </Link>
-                    <Link to="/contact">
-                        <button type='button' className='btn btn-outline-light btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Contact Us</button>
-                    </Link>
-                </div>
+      {/* Hero Section */}
+      
+     <header className='h-100 min-vh-100 d-flex align-items-center text-light bg-dark'>
+      <div className='container d-flex flex-column' style={{ margin: '10%' }}>
+        
+        <motion.h1
+          className='text-left fw-semibold mb-3'
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          A World-Class Education Rooted in Inquiry and Innovation
+        </motion.h1>
+
+        <motion.p
+          className="mb-4"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <ApplyNowButton />
+        </motion.div>
+
+      </div>
+    </header>
+
+      {/* Choose Section */}
+      <div className="py-5">
+        <ChooseSection />
+      </div>
+ <div className="">
+        <LogoCarousel/>
+      </div>
+      <div className="">
+        <Programs/>
+      </div>
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <EventCard />
+    </div> 
+      {/* Courses Highlight Section */}
+      <div className='py-5 bg-light courses'>
+        <div className="container">
+          <div className='row d-flex align-items-center justify-content-around'>
+            <div className='col-lg-5'>
+              <h2 className='text-capitalize'>2024 start courses</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, placeat.</p>
+              <Link to="/courses">
+                <button type='button' className='btn btn-danger btn-lg'>Learn More</button>
+              </Link>
             </div>
-        </header>
-
-        <div className="py-5">
-            <ChooseSection />
-        </div>
-
-        <div className='py-5 bg-light'>
-            <div className="container">
-                <div className='row d-flex align-items-center justify-content-around'>
-                    <div className='col-lg-5'>
-                        <h2 className='text-capitalize'>2024 start courses</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, placeat.</p>
-                        <Link to="/courses">
-                            <button type='button' className='btn btn-danger btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Learn More</button>
-                        </Link>
-                    </div>
-                    <div className='col-lg-5 mt-5 mt-lg-0'>
-                        <img src={StartCoursesImg} className='img-fluid' alt="" />
-                    </div>
-                </div>
+            <div className='col-lg-5 mt-5 mt-lg-0'>
+              <img src={StartCoursesImg} className='img-fluid' alt="Start Courses" />
             </div>
+          </div>
         </div>
+      </div>
 
-        <div className="py-5">
-            <FaqAccordion />
-        </div>
+      {/* FAQ Section */}
+      <div className="py-5">
+        <FaqAccordion />
+      </div>
 
-        <div className='blog-section text-light py-5'>
-            <div className='container d-flex flex-column align-items-center'>
-                <h2 className='text-center text-capitalize mb-5'>Latest on the blog</h2>
-                <div className='row g-4'>
-                    {blogs.map((blog) => (
-                        <div key={blog.id} className='col-md-6 col-lg-4'>
-                            <Link to="/blog" className='text-decoration-none'>
-                                <Card className='h-100 shadow scale-hover-effect'>
-                                    <Card.Img variant="top" src={blog.img} />
-                                    <Card.Body className='p-md-5'>
-                                        <Card.Title>{blog.title}</Card.Title>
-                                        <Card.Text>{blog.description}</Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </Link>
-                        </div>
-                    ))}
+      {/* Blog Section */}
+      <div className='blog-section text-light py-5'>
+        <div className='container d-flex flex-column align-items-center'>
+          <h2 className='text-center text-capitalize mb-5'>Latest on the blog</h2>
+          <div className='row g-4'>
+            {blogs.map((blog) => {
+              const imageUrl = extractImageUrl(blog.content.rendered);
+
+              return (
+                <div key={blog.id} className='col-md-6 col-lg-4'>
+                  <Link to={`/blog/${blog.id}`} className='text-decoration-none'>
+                    <Card className='h-100 shadow scale-hover-effect'>
+                      <Card.Img
+                        variant="top"
+                        src={imageUrl || "https://via.placeholder.com/600x300?text=No+Image"}
+                        alt={blog.title.rendered}
+                        style={{ height: '200px', objectFit: 'cover' }}
+                      />
+                      <Card.Body className='p-md-4'>
+                        <Card.Title dangerouslySetInnerHTML={{ __html: blog.title.rendered }} />
+                        <Card.Text dangerouslySetInnerHTML={{ __html: blog.excerpt.rendered }} />
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 </div>
-                <Link to="/blog">
-                    <button type='button' className='btn btn-danger btn-lg mt-5'>Read More Blogs</button>
-                </Link>
-            </div>
+              );
+            })}
+          </div>
+          <Link to="/blog">
+            <button type='button' className='btn btn-danger btn-lg mt-5'>Read More Blogs</button>
+          </Link>
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Home;

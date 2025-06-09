@@ -1,0 +1,40 @@
+.carousel {
+  height: 120px;
+  overflow: hidden;
+  background: #F3F5F9;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  animation: scrollTrain 20s linear infinite;
+}
+
+.logo {
+  height: 60px;
+  margin-right: 102px;
+  flex-shrink: 0;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Animation: scroll from right to left continuously */
+@keyframes scrollTrain {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+@media (max-width: 768px) {
+  .logo {
+    height: 40px;
+    margin-right: 20px;
+  }
+}

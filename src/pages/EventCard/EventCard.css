@@ -1,0 +1,83 @@
+.custom-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 
+    0px 2.188px 6.564px 2.188px rgba(0, 0, 0, 0.15),
+    0px 1.094px 2.188px 0px rgba(0, 0, 0, 0.30);
+  border: none;
+  width: 100%;
+  max-width: 422px;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.custom-card-image-wrapper {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.custom-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.placeholder-img {
+  background-color: #f2f2f2;
+  font-size: 1rem;
+  color: #888;
+  border: 1px solid #ddd;
+}
+
+.custom-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.custom-card-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0;
+  color: #000;
+}
+
+.custom-card-grade {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure space is reserved even if content is missing */
+.custom-card-title-wrapper,
+.custom-card-desc-wrapper {
+  min-height: 1.5rem; /* tweak to your needs */
+}
+
+.custom-card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #000;
+  margin-bottom: 0.4rem;
+}
+
+.custom-card-desc {
+  font-size: 0.875rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
+.custom-card:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow:
+    0px 4px 12px rgba(0, 0, 0, 0.2),
+    0px 2px 6px rgba(0, 0, 0, 0.1);
+}

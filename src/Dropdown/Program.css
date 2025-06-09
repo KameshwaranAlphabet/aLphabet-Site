@@ -1,6 +1,4 @@
-.about-page header {
-    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/about-page-header.jpg);
-}
+
 
 .rotate-180 {
   transform: rotate(180deg);
@@ -17,8 +15,4 @@
   font-weight: 400;
   line-height: normal;
   display: inline-block; /* for text-align to work properly */
-}
-.about-text.active-about {
-  font-weight:600;
-  color: #000203d2; /* Bootstrap primary or your desired color */
 }

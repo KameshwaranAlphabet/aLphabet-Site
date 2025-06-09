@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Poppins';
 }
 
 h1, h2, h3, p, a {
@@ -10,21 +11,89 @@ header h1 {
   font-size: 4rem;
 }
 
-.navbar .nav-link {
-  font-size: 14px;
+.navbar {
+  font-size: 16px;
   color: #ffffff;
 }
+.footer-legal {
+  flex-shrink: 0;
 
-.navbar .navbar-nav .nav-link:hover {
-  color: #dc3545;
+  color: rgba(0, 0, 0, 0.70);
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
+.social-icon {
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+  object-fit: contain; /* keeps image ratio nicely */
+  display: inline-block;
+}
+
+.social-icon-facebook{
+  width: 37px;
+  height: 37px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+}
+
+.social-icon-youtube{
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+}
+
+.social-icon-linkedin{
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+}
+
+  
+/* .navbar .navbar-nav .nav-link:hover {
+  color: #dc3545;
+} */
+/* 
 nav .navbar-toggler:focus {
   box-shadow: none;
-}
+} */
 
 .scale-hover-effect {
   transition: transform .5s ease;
+}
+.section-heading {
+  height: 32px;
+  width: max-content;
+  align-self: stretch;
+  color: rgba(0, 0, 0, 0.80);
+
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500; /* Same as fw-medium */
+  line-height: normal;
+  text-align: center;
+display: flex;
+}
+.footer-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  
+
+  color: rgba(0, 0, 0, 0.60);
+ 
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+gap: 16px;
 }
 
 .scale-hover-effect:hover {
@@ -35,13 +104,24 @@ nav .navbar-toggler:focus {
   height: 75vh;
 }
 
-.footer-social-icons li:hover svg {
+/* .footer-social-icons li:hover svg {
   fill: #212529;
-}
+} */
 
-.footer-navigation li:hover {
+
+/* .stripes {
+  background: repeating-linear-gradient(
+    to right,
+    #f6f3ff,
+    #f6f3ff 20px,
+    #e3dfff 20px,
+    #e3dfff 40px
+  );
+} */
+
+/* .footer-navigation li:hover {
   color: #212529;
-}
+} */
 
 @media only screen and (max-width: 992px) {
   #basic-navbar-nav {
